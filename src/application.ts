@@ -9,6 +9,8 @@ import {RestApplication} from '@loopback/rest';
 import {ServiceMixin} from '@loopback/service-proxy';
 import path from 'path';
 import {MySequence} from './sequence';
+import {BcrpytHasher} from './services/hash.password.bcrypt';
+import {MyUserService} from './services/user-service';
 
 export {ApplicationConfig};
 
@@ -17,6 +19,9 @@ export class Starter extends BootMixin(
 ) {
   constructor(options: ApplicationConfig = {}) {
     super(options);
+
+    //set up bindings
+    this.setupBinding();
 
     // Set up the custom sequence
     this.sequence(MySequence);
@@ -41,4 +46,10 @@ export class Starter extends BootMixin(
       },
     };
   }
+  setupBinding() : void{
+    this.bind('service.hasher').toClass(BcrpytHasher);
+    this.bind('rounds').to(10);
+    this.bind('services.user.service').toClass(MyUserService);
+  }
 }
+

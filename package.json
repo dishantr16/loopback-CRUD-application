@@ -49,12 +49,17 @@
     "!*/__tests__"
   ],
   "dependencies": {
+    "@loopback/authentication": "^7.0.5",
     "@loopback/boot": "^3.1.2",
     "@loopback/core": "^2.13.1",
     "@loopback/repository": "^3.3.0",
     "@loopback/rest": "^9.1.1",
     "@loopback/rest-explorer": "^3.0.5",
     "@loopback/service-proxy": "^3.0.5",
+    "@types/bcryptjs": "^2.4.2",
+    "@types/lodash": "^4.14.165",
+    "bcryptjs": "^2.4.3",
+    "isemail": "^3.2.0",
     "loopback-connector-mysql": "^5.4.4",
     "tslib": "^2.0.0"
   },
